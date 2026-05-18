@@ -1,0 +1,15 @@
+const { test, expect } = require('@playwright/test');
+
+test('Valid Login Test', async ({ page }) => {
+
+  await page.goto('https://practicetestautomation.com/practice-test-login/');
+
+  await page.locator('#username').fill('student');
+
+  await page.locator('#password').fill('Password123');
+
+  await page.locator('#submit').click();
+
+  await expect(page).toHaveURL(/logged-in-successfully/);
+
+});
